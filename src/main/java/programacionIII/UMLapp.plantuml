@@ -1,0 +1,260 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class App {
+  + App(): 
+  + main(String[]): void
+}
+class Bestia {
+  + Bestia(String, LocalDate, Raza, int, int, int, int, int, int): 
+  + danioProvocado(): double
+}
+class DataController {
+  + DataController(): 
+  + personajesPersonlizados(): List<Personaje>
+  - ControlDatoEntero(String, int): int
+  - ObtenerDatosUsuario(): Personaje
+  - SeleccionarRaza(): Raza
+  - obtenerRaza(int): Raza
+  - ControlNombre(): String
+}
+class Elfo {
+  + Elfo(String, LocalDate, Raza, int, int, int, int, int, int): 
+  + danioProvocado(): double
+}
+class Enano {
+  + Enano(String, LocalDate, Raza, int, int, int, int, int, int): 
+  + danioProvocado(): double
+}
+interface GamePresentation << interface >> {
+  + Menu(): void
+}
+class GamePresentationImpl {
+  + GamePresentationImpl(): 
+  + Menu(): void
+  - partidaAleatoria(): void
+  - partidaPersonalizada(): void
+  - leerArchivo(): void
+  - borrarArchivo(): void
+}
+class GameService {
+  + GameService(): 
+  + comenzarJuego(Jugador, Jugador): void
+  - realizarRonda(Personaje, Personaje, List<Personaje>, List<Personaje>): void
+  - statusBatalla(Personaje, Personaje): void
+  - msgEspera(String, int): void
+  - mostrarGanador(List<Personaje>, Jugador, Jugador): void
+  - enfrentamientoPersonajes(Jugador, Jugador): void
+  - numeroAleatorio(int): int
+  - Bonus(Personaje): void
+  - msgPersonajesElegidos(Personaje, Personaje, boolean, Jugador, Jugador): void
+  - presentacionJugadres(Jugador, Jugador): void
+  - ganadorRonda(Personaje, Personaje): void
+}
+class Hobbit {
+  + Hobbit(String, LocalDate, Raza, int, int, int, int, int, int): 
+  + danioProvocado(): double
+}
+class Humano {
+  + Humano(String, LocalDate, Raza, int, int, int, int, int, int): 
+  + danioProvocado(): double
+}
+class Jugador {
+  + Jugador(): 
+  - nombre: String
+  - listaPersonajes: List<Personaje>
+  + toString(): String
+   listaPersonajes: List<Personaje>
+   nombre: String
+}
+class JugadorDAO {
+  + JugadorDAO(String): 
+  + JugadorDAO(String, String, List<PersonajeDAO>): 
+  + JugadorDAO(): 
+  - nombre: String
+  - fecha: String
+  - listaPersonajes: List<PersonajeDAO>
+  + hashCode(): int
+  + equals(Object): boolean
+   listaPersonajes: List<PersonajeDAO>
+   fecha: String
+   nombre: String
+}
+interface JugadorFactory << interface >> {
+  + crearJugadorMaquina(): Jugador
+  + crearJugadorPernajesPersonalizados(): Jugador
+  + nombreJugador(): String
+  + crearJugador(): Jugador
+}
+class JugadoresFactoryImpl {
+  + JugadoresFactoryImpl(): 
+  + crearJugadorMaquina(): Jugador
+  + nombreJugador(): String
+  + crearJugador(): Jugador
+  + crearJugadorPernajesPersonalizados(): Jugador
+}
+class Mago {
+  + Mago(String, LocalDate, Raza, int, int, int, int, int, int): 
+  + danioProvocado(): double
+}
+class Maiar {
+  + Maiar(String, LocalDate, Raza, int, int, int, int, int, int): 
+  + danioProvocado(): double
+}
+interface NamesLordOfTheRing << interface >> {
+  + nombreAleatorio(): String
+  + obtenerRazaPersonaje(String): Raza
+}
+class NamesLordOfTheRingImpl {
+  + NamesLordOfTheRingImpl(): 
+  + nombreAleatorio(): String
+  + obtenerRazaPersonaje(String): Raza
+}
+class Orco {
+  + Orco(String, LocalDate, Raza, int, int, int, int, int, int): 
+  + danioProvocado(): double
+}
+class Personaje {
+  + Personaje(String, LocalDate, Raza, int, int, int, int, int, int): 
+  - destreza: int
+  - fuerza: int
+  - nombre: String
+  - edad: int
+  - apodo: String
+  - salud: double
+  - fecha: LocalDate
+  - nivel: int
+  - raza: Raza
+  - armadura: int
+  - velocidad: int
+  + poderDefensa(): int
+  + hashCode(): int
+  + actualizarSalud(double): void
+  + toString(): String
+  + equals(Object): boolean
+  + danioProvocado(): double
+  + valorAtaque(): float
+  + poderDisparo(): int
+  + efectividadDisparo(): float
+   velocidad: int
+   edad: int
+   salud: double
+   destreza: int
+   armadura: int
+   nombre: String
+   apodo: String
+   fuerza: int
+   raza: Raza
+   fecha: LocalDate
+   nivel: int
+}
+class PersonajeDAO {
+  + PersonajeDAO(): 
+  + PersonajeDAO(String, String, String, String, int, int, int, int, int, int, double): 
+  - armadura: int
+  - velocidad: int
+  - nombre: String
+  - fuerza: int
+  - salud: double
+  - apodo: String
+  - nivel: int
+  - fecha: String
+  - raza: String
+  - destreza: int
+  - edad: int
+  + toString(): String
+  + hashCode(): int
+  + equals(Object): boolean
+   velocidad: int
+   fecha: String
+   edad: int
+   salud: double
+   destreza: int
+   armadura: int
+   raza: String
+   nombre: String
+   apodo: String
+   fuerza: int
+   nivel: int
+}
+interface PersonajesFactory << interface >> {
+  + personajesAleatorio(): List<Personaje>
+  + crearPersonaje(String, LocalDate, Raza, int, int, int, int, int, int): Personaje
+}
+class PersonajesFactoryImpl {
+  + PersonajesFactoryImpl(): 
+  + fechaNacimientoAleatoria(): LocalDate
+  + personajesAleatorio(): List<Personaje>
+  + crearPersonaje(String, LocalDate, Raza, int, int, int, int, int, int): Personaje
+  - numeroAleatorio(int, int): int
+}
+enum Raza << enumeration >> {
+  - Raza(int, int, int, int, int, int, int, int, int, int, int, int): 
+  - edadMin: int
+  - velocidadMin: int
+  - armaduraMin: int
+  - destrezaMin: int
+  - destrazaMax: int
+  - nivelMax: int
+  - nivelMin: int
+  - fuerzaMax: int
+  - armaduraMax: int
+  - edadMax: int
+  - velocidadMax: int
+  - fuerzaMin: int
+  + valueOf(String): Raza
+  + values(): Raza[]
+   fuerzaMax: int
+   nivelMin: int
+   edadMin: int
+   fuerzaMin: int
+   velocidadMin: int
+   velocidadMax: int
+   armaduraMin: int
+   armaduraMax: int
+   destrazaMax: int
+   nivelMax: int
+   edadMax: int
+   destrezaMin: int
+}
+interface Registro << interface >> {
+  + eliminarDatos(): String
+  + leerDatos(): List<JugadorDAO>
+  + escribirDatos(List<JugadorDAO>): void
+}
+class RegistroImpl {
+  + RegistroImpl(String): 
+  + escribirDatos(List<JugadorDAO>): void
+  + leerDatos(): List<JugadorDAO>
+  + eliminarDatos(): String
+}
+interface RegistroService << interface >> {
+  + borrarHistorial(): void
+  + guardaPartida(Jugador): void
+  + verHistorial(): void
+}
+class RegistroServiceImpl {
+  + RegistroServiceImpl(): 
+  + guardaPartida(Jugador): void
+  + borrarHistorial(): void
+  + verHistorial(): void
+}
+
+Bestia                  -[#000082,plain]-^  Personaje              
+Elfo                    -[#000082,plain]-^  Personaje              
+Enano                   -[#000082,plain]-^  Personaje              
+GamePresentationImpl    -[#008200,dashed]-^  GamePresentation       
+Hobbit                  -[#000082,plain]-^  Personaje              
+Humano                  -[#000082,plain]-^  Personaje              
+JugadoresFactoryImpl    -[#008200,dashed]-^  JugadorFactory         
+Mago                    -[#000082,plain]-^  Personaje              
+Maiar                   -[#000082,plain]-^  Personaje              
+NamesLordOfTheRingImpl  -[#008200,dashed]-^  NamesLordOfTheRing     
+Orco                    -[#000082,plain]-^  Personaje              
+PersonajesFactoryImpl   -[#008200,dashed]-^  PersonajesFactory      
+RegistroImpl            -[#008200,dashed]-^  Registro               
+RegistroServiceImpl     -[#008200,dashed]-^  RegistroService        
+@enduml
