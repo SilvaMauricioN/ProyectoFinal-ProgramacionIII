@@ -1,0 +1,18 @@
+[ {
+  "nombre" : "MAQUINA",
+  "fecha" : "2023-07-21 17:03:26",
+  "listaPersonajes" : [ {
+    "nombre" : "ÉOWYN",
+    "apodo" : "Rau",
+    "fecha" : "26/04/1561",
+    "raza" : "HUMANO",
+    "velocidad" : 7,
+    "destreza" : 4,
+    "fuerza" : 8,
+    "nivel" : 8,
+    "armadura" : 7,
+    "edad" : 86,
+    "salud" : 30.43
+  } ]
+}
+]
