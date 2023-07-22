@@ -1,0 +1,41 @@
+[ {
+  "nombre" : "MAQUINA",
+  "fecha" : "2023-07-21 17:03:26",
+  "listaPersonajes" : [ {
+    "nombre" : "ÉOWYN",
+    "apodo" : "Rau",
+    "fecha" : "26/04/1561",
+    "raza" : "HUMANO",
+    "velocidad" : 7,
+    "destreza" : 4,
+    "fuerza" : 8,
+    "nivel" : 8,
+    "armadura" : 7,
+    "edad" : 86,
+    "salud" : 30.43
+  }, {
+    "nombre" : "SAURON",
+    "apodo" : "Wolff",
+    "fecha" : "22/09/1822",
+    "raza" : "MAIAR",
+    "velocidad" : 8,
+    "destreza" : 5,
+    "fuerza" : 8,
+    "nivel" : 9,
+    "armadura" : 9,
+    "edad" : 874,
+    "salud" : 100.0
+  }, {
+    "nombre" : "GANDALF THE GREY",
+    "apodo" : "White",
+    "fecha" : "02/06/2362",
+    "raza" : "MAGO",
+    "velocidad" : 9,
+    "destreza" : 5,
+    "fuerza" : 6,
+    "nivel" : 8,
+    "armadura" : 7,
+    "edad" : 1617,
+    "salud" : 82.85
+  } ]
+} ]
